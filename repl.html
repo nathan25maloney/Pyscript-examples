@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>REPL</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <link rel="stylesheet" href="/style.css"/>
+  </head>
+  <body>
+    <div id="navbar-container"></div>
+    <h2 class="main-tagline">Here is an example of the REPL tag in use.
+        <br>You can preload it with any code you want or let the user execute whatever they wish!
+        <br>Execute the first line of code to get your navbar</h2>
+    <py-repl id="my-repl" auto-generate="true">
+        add_nav_bar()
+    </py-repl>
+    <h3 id="hidden-text" class="hidden">Now Feel free to run whatever python code you'd like to test it out!</h3>
+
+    <py-script>
+        def add_nav_bar():
+            nav_bar_container = Element("navbar-container")
+            nav_bar_container.element.innerHTML = '<a href="/">Home</a> <a href="/repl.html">REPL Example</a> <a href="/imported.html">Imported Library Example</a> <a href="/bi-directional.html">JS Bi-directional Object Passing Example</a>'
+            div = Element("hidden-text")
+            div.remove_class('hidden')
+
+
+
+
+    </py-script>
+
+
+</body>
+</html>

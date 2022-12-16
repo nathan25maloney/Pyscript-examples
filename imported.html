@@ -1,0 +1,30 @@
+<html>
+  <head>
+      <title>Import Page</title>
+      <meta charset="utf-8">
+      <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+      <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+      <link rel="stylesheet" href="/style.css"/>
+      <py-config>
+          [[fetch]]
+          files = ["/utils.py"]
+      </py-config>
+  </head>
+  <body>
+    <div id="navbar-container"></div>
+    <h2 class="main-tagline">This time part of the navbar function was offloaded to a separate utils.py file
+    <br>We imported the file with the pyconfig tag and pointed it at our file we wrote
+    <br>We can then import that code into our pyscript tag and use it to run the function to add the navbar
+    <br>This is where you can also add a statement like packages = ["matplotlib", "pandas"] to get the packages you want to use
+    <br>In my experience this is how you could write your page components in JS and import them in to build your webpage</h2>
+
+    <py-script>
+        from utils import add_nav_bar
+
+        nav_bar_container = Element("navbar-container")
+        nav_bar_container.element.innerHTML = add_nav_bar()
+    </py-script>
+
+
+</body>
+</html>

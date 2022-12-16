@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <title>Bi-Directional</title>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="/bi-directional.js"></script>
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <link rel="stylesheet" href="/style.css"/>
+  </head>
+  <body>
+    <div id="navbar-container"></div>
+    <py-script>
+      def add_nav_bar():
+          nav_bar_container = Element("navbar-container")
+          nav_bar_container.element.innerHTML = '<a href="/">Home</a> <a href="/repl.html">REPL Example</a> <a href="/imported.html">Imported Library Example</a> <a href="/bi-directional.html">JS Bi-directional Object Passing Example</a>'
+      add_nav_bar()
+    </py-script>
+
+    <h3 class="main-tagline">Here is a bit of code imported from Javascript that will hide the navbar or make it re-appear</h3>
+    <py-repl id="my-first-repl" auto-generate="false">
+        from js import toggleNavBar
+        toggleNavBar()
+    </py-repl>
+    <h3 class="main-tagline">Here we are importing a string variable and printing it to the py-terminal and also the console that can be viewed by inspecting the page</h3>
+    <py-repl id="my-second-repl" auto-generate="false">
+        from js import message, console
+        print(message)
+        console.log(message)
+    </py-repl>
+
+    <h3 class="main-tagline">Here we want to add a variable into the pyscript global scope and use the button below to call a javascript button that grabs that value
+    <br>Try clicking the button then run this code.  Feel free to change the variable and click the button again.</h3>
+
+    <py-repl id="my-third-repl" auto-generate="false">
+        x = 47
+    </py-repl>
+    <button class="button" onclick="showX()">Click Me to Get 'x' from Python</button>
+    <div id="show-content"></div>
+
+</body>
+</html>
